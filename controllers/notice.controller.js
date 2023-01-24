@@ -43,6 +43,21 @@ exports.getNotice = async (req, res, next) => {
   }
 };
 
+exports.getAllNotices = async (req, res, next) => {
+  try {
+    const notice = await Notice.find();
+    return res.status(200).json({
+      status: "success",
+      message: "notices fetched successfully",
+      data: notice,
+    });
+  } catch (error) {
+    return res.json({
+      status: "failed",
+    });
+  }
+};
+
 exports.updateNotice = async (req, res, next) => {
   try {
     const { title, name, image, description, author_id, notice_id } = req.body;

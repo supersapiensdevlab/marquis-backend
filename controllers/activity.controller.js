@@ -51,6 +51,21 @@ exports.getActivity = async (req, res, next) => {
   }
 };
 
+exports.getAllActivities = async (req, res, next) => {
+  try {
+    const activity = await Activity.find();
+    return res.status(200).json({
+      status: "success",
+      message: "activities fetched successfully",
+      data: activity,
+    });
+  } catch (error) {
+    return res.json({
+      status: "failed",
+    });
+  }
+};
+
 exports.updateActivity = async (req, res, next) => {
   try {
     const {

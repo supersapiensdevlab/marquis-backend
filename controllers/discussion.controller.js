@@ -43,6 +43,21 @@ exports.getDiscussion = async (req, res, next) => {
   }
 };
 
+exports.getAllDiscussions = async (req, res, next) => {
+  try {
+    const discussion = await Discussion.find();
+    return res.status(200).json({
+      status: "success",
+      message: "discussions fetched successfully",
+      data: discussion,
+    });
+  } catch (error) {
+    return res.json({
+      status: "failed",
+    });
+  }
+};
+
 exports.updateDiscussion = async (req, res, next) => {
   try {
     const { title, image, description, author_id, discussion_id, comments } =
