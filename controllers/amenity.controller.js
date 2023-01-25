@@ -1,4 +1,4 @@
-const Amenity = require("../models/Amenity.model");
+const Amenity = require("../models/amenity.model");
 const makeId = require("../utils/makeId");
 
 exports.addAmenity = async (req, res, next) => {
