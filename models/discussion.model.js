@@ -23,7 +23,6 @@ const discussionSchema = Schema({
   },
   comments: {
     type: Array,
-    required: true,
     default: [],
   },
   createdAt: {

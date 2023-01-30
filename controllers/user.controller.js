@@ -1,5 +1,6 @@
 const User = require("../models/user.model");
 const makeId = require("../utils/makeId");
+const fetchSocietyAddress = require("../utils/fetchSocietyAddress");
 
 exports.addUser = async (req, res, next) => {
   try {
@@ -12,8 +13,7 @@ exports.addUser = async (req, res, next) => {
       flat_no,
       wing,
       floor,
-      society_name,
-      address,
+      society_id,
       type,
     } = req.body;
     const user = new User();
@@ -25,8 +25,12 @@ exports.addUser = async (req, res, next) => {
     user.flat_no = flat_no;
     user.wing = wing;
     user.floor = floor;
-    user.society_name = society_name;
-    user.address = address;
+    user.society_id = society_id;
+    user.address = `Flat no.${flat_no}, ${wing} wing, `.concat(
+      (await fetchSocietyAddress(society_id)) != null
+        ? await fetchSocietyAddress(society_id)
+        : ""
+    );
     user.type = type;
     user.createdAt = new Date();
     await user.save();
@@ -82,7 +86,7 @@ exports.updateUser = async (req, res, next) => {
       flat_no,
       wing,
       floor,
-      society_name,
+      society_id,
       address,
       type,
       user_id,
@@ -95,7 +99,7 @@ exports.updateUser = async (req, res, next) => {
     user.flat_no = flat_no;
     user.wing = wing;
     user.floor = floor;
-    user.society_name = society_name;
+    user.society_id = society_id;
     user.address = address;
     user.type = type;
     await user.save();

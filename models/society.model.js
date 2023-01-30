@@ -71,7 +71,6 @@ const societySchema = Schema({
   },
   amenities: {
     type: Array,
-    required: true,
     default: [], //array of strings
   },
   createdAt: {

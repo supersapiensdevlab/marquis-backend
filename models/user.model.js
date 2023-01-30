@@ -33,7 +33,7 @@ const userSchema = Schema({
     type: Number,
     required: true,
   },
-  society_name: {
+  society_id: {
     type: String,
     required: true,
   },

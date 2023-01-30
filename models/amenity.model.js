@@ -12,7 +12,6 @@ const amenitySchema = Schema({
   },
   image: {
     type: String,
-    required: true,
   },
   working_hours: {
     type: Object,

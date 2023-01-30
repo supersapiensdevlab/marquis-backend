@@ -12,7 +12,6 @@ const dailyhelpSchema = Schema({
   },
   image: {
     type: String,
-    required: true,
   },
   hours: {
     type: Number,

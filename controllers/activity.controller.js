@@ -4,15 +4,8 @@ const makeId = require("../utils/makeId");
 exports.addActivity = async (req, res, next) => {
   try {
     console.log(req.body);
-    const {
-      name,
-      title,
-      image,
-      access_details,
-      allowed_by,
-      visitor_contact,
-      objection,
-    } = req.body;
+    const { name, title, image, access_details, allowed_by, visitor_contact } =
+      req.body;
     const activity = new Activity();
     activity.activity_id = makeId(7);
     activity.title = title;
@@ -21,7 +14,7 @@ exports.addActivity = async (req, res, next) => {
     activity.access_details = access_details;
     activity.allowed_by = allowed_by;
     activity.visitor_contact = visitor_contact;
-    activity.objection = objection;
+    activity.objection = false;
     activity.createdAt = new Date();
     await activity.save();
     return res.status(200).json({

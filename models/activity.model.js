@@ -32,6 +32,7 @@ const activitySchema = Schema({
   objection: {
     type: Boolean,
     required: true,
+    default: false,
   },
   createdAt: {
     type: Date,

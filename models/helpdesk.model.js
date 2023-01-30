@@ -12,7 +12,6 @@ const helpdeskSchema = Schema({
   },
   image: {
     type: String,
-    required: true,
   },
   author_id: {
     type: String,
