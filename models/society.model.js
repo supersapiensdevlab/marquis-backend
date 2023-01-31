@@ -54,12 +54,8 @@ const societySchema = Schema({
   wings: {
     type: Array,
     required: true,
-    default: [
-      //array of objects
-      {
-        wing: {
-          type: String,
-        },
+    default: {
+      wing: {
         floors: {
           type: Number,
         },
@@ -67,7 +63,7 @@ const societySchema = Schema({
           type: Number,
         },
       },
-    ],
+    },
   },
   amenities: {
     type: Array,
