@@ -25,7 +25,7 @@ const userSchema = Schema({
     type: Number,
     required: true,
   },
-  wing: {
+  wing_id: {
     type: String,
     required: true,
   },
@@ -44,6 +44,26 @@ const userSchema = Schema({
   type: {
     type: String,
     required: true,
+  },
+  household: {
+    type: Object,
+    default: {
+      id: {
+        type: String,
+      },
+      name: {
+        type: String,
+      },
+      image: {
+        type: String,
+      },
+      type: {
+        type: String,
+      },
+      contact: {
+        type: Number,
+      },
+    },
   },
   createdAt: {
     type: Date,

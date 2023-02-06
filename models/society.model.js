@@ -52,9 +52,12 @@ const societySchema = Schema({
     ],
   },
   wings: {
-    type: Array,
+    type: Object,
     required: true,
     default: {
+      id: {
+        type: String,
+      },
       wing: {
         floors: {
           type: Number,

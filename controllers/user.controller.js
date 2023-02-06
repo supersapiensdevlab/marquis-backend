@@ -11,10 +11,11 @@ exports.addUser = async (req, res, next) => {
       contact,
       profile_image,
       flat_no,
-      wing,
+      wing_id,
       floor,
       society_id,
       type,
+      household,
     } = req.body;
     const user = new User();
     user.user_id = makeId(7);
@@ -23,15 +24,16 @@ exports.addUser = async (req, res, next) => {
     user.contact = contact;
     user.profile_image = profile_image;
     user.flat_no = flat_no;
-    user.wing = wing;
+    user.wing_id = wing_id;
     user.floor = floor;
     user.society_id = society_id;
-    user.address = `Flat no.${flat_no}, ${wing} wing, `.concat(
+    user.address = `Flat no.${flat_no}, ${wing_id} wing, `.concat(
       (await fetchSocietyAddress(society_id)) != null
         ? await fetchSocietyAddress(society_id)
         : ""
     );
     user.type = type;
+    user.household = household;
     user.createdAt = new Date();
     await user.save();
     return res.status(200).json({
@@ -84,12 +86,13 @@ exports.updateUser = async (req, res, next) => {
       contact,
       profile_image,
       flat_no,
-      wing,
+      wing_id,
       floor,
       society_id,
       address,
       type,
       user_id,
+      household,
     } = req.body;
     const user = await User.findOne({ user_id: user_id });
     user.name = name;
@@ -97,10 +100,11 @@ exports.updateUser = async (req, res, next) => {
     user.contact = contact;
     user.profile_image = profile_image;
     user.flat_no = flat_no;
-    user.wing = wing;
+    user.wing_id = wing_id;
     user.floor = floor;
     user.society_id = society_id;
     user.address = address;
+    user.household = household;
     user.type = type;
     await user.save();
     return res.status(200).json({
