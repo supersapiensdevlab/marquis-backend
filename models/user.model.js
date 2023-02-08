@@ -46,24 +46,23 @@ const userSchema = Schema({
     required: true,
   },
   household: {
-    type: Object,
-    default: {
-      id: {
-        type: String,
+    type: Array,
+    default: [
+      {
+        name: {
+          type: String,
+        },
+        image: {
+          type: String,
+        },
+        type: {
+          type: String,
+        },
+        contact: {
+          type: Number,
+        },
       },
-      name: {
-        type: String,
-      },
-      image: {
-        type: String,
-      },
-      type: {
-        type: String,
-      },
-      contact: {
-        type: Number,
-      },
-    },
+    ],
   },
   createdAt: {
     type: Date,

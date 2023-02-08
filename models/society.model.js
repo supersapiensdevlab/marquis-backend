@@ -52,18 +52,24 @@ const societySchema = Schema({
     ],
   },
   wings: {
-    type: Object,
+    type: Arrar,
     required: true,
     default: {
-      id: {
-        type: String,
-      },
       wing: {
-        floors: {
-          type: Number,
-        },
-        flat_count_per_floor: {
-          type: Number,
+        type: Object,
+        default: {
+          id: {
+            type: String,
+          },
+          name: {
+            type: String,
+          },
+          floors: {
+            type: Number,
+          },
+          flat_count_per_floor: {
+            type: Number,
+          },
         },
       },
     },
