@@ -24,7 +24,7 @@ const societySchema = Schema({
     default: [
       //array of objects
       {
-        name: {
+        member_name: {
           type: String,
         },
         contact: {
@@ -42,7 +42,7 @@ const societySchema = Schema({
     default: [
       //array of objects
       {
-        name: {
+        emergency_name: {
           type: String,
         },
         contact: {
