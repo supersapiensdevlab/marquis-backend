@@ -28,7 +28,7 @@ const societySchema = Schema({
           type: String,
         },
         contact: {
-          type: Number,
+          type: String,
         },
         designation: {
           type: String,
@@ -46,7 +46,7 @@ const societySchema = Schema({
           type: String,
         },
         contact: {
-          type: Number,
+          type: String,
         },
       },
     ],
