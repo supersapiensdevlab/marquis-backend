@@ -52,27 +52,29 @@ const societySchema = Schema({
     ],
   },
   wings: {
-    type: Arrar,
+    type: Array,
     required: true,
-    default: {
-      wing: {
-        type: Object,
-        default: {
-          id: {
-            type: String,
-          },
-          name: {
-            type: String,
-          },
-          floors: {
-            type: Number,
-          },
-          flat_count_per_floor: {
-            type: Number,
+    default: [
+      {
+        wing: {
+          type: Object,
+          default: {
+            id: {
+              type: String,
+            },
+            name: {
+              type: String,
+            },
+            floors: {
+              type: Number,
+            },
+            flat_count_per_floor: {
+              type: Number,
+            },
           },
         },
       },
-    },
+    ],
   },
   amenities: {
     type: Array,
