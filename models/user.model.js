@@ -25,7 +25,7 @@ const userSchema = Schema({
     type: Number,
     required: true,
   },
-  wing_id: {
+  wing_name: {
     type: String,
     required: true,
   },

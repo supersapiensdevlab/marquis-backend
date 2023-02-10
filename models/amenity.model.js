@@ -15,6 +15,14 @@ const amenitySchema = Schema({
   },
   working_hours: {
     type: Object,
+    default: {
+      startTime: {
+        default: null,
+      },
+      endTime: {
+        default: null,
+      },
+    },
     required: true,
   },
   createdAt: {
