@@ -14,11 +14,11 @@ const dailyhelpSchema = Schema({
     type: String,
   },
   hours: {
-    type: Number,
+    type: String,
     required: true,
   },
   contact: {
-    type: Number,
+    type: String,
     required: true,
   },
   type: {
