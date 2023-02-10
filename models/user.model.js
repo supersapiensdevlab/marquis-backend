@@ -22,7 +22,7 @@ const userSchema = Schema({
     type: String,
   },
   flat_no: {
-    type: Number,
+    type: String,
     required: true,
   },
   wing_name: {
@@ -30,7 +30,7 @@ const userSchema = Schema({
     required: true,
   },
   floor: {
-    type: Number,
+    type: String,
     required: true,
   },
   society_id: {
@@ -59,7 +59,7 @@ const userSchema = Schema({
           type: String,
         },
         contact: {
-          type: Number,
+          type: String,
         },
       },
     ],
