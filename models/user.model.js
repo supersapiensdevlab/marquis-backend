@@ -15,7 +15,7 @@ const userSchema = Schema({
     required: true,
   },
   contact: {
-    type: Number,
+    type: String,
     required: true,
   },
   profile_image: {
