@@ -11,7 +11,7 @@ exports.addUser = async (req, res, next) => {
       contact,
       profile_image,
       flat_no,
-      wing_id,
+      wing_name,
       floor,
       society_id,
       type,
@@ -24,10 +24,10 @@ exports.addUser = async (req, res, next) => {
     user.contact = contact;
     user.profile_image = profile_image;
     user.flat_no = flat_no;
-    user.wing_id = wing_id;
+    user.wing_name = wing_name;
     user.floor = floor;
     user.society_id = society_id;
-    user.address = `Flat no.${flat_no}, ${wing_id} wing, `.concat(
+    user.address = `Flat no.${flat_no}, ${wing_name} wing, `.concat(
       (await fetchSocietyAddress(society_id)) != null
         ? await fetchSocietyAddress(society_id)
         : ""
@@ -86,7 +86,7 @@ exports.updateUser = async (req, res, next) => {
       contact,
       profile_image,
       flat_no,
-      wing_id,
+      wing_name,
       floor,
       society_id,
       address,
@@ -100,7 +100,7 @@ exports.updateUser = async (req, res, next) => {
     user.contact = contact;
     user.profile_image = profile_image;
     user.flat_no = flat_no;
-    user.wing_id = wing_id;
+    user.wing_name = wing_name;
     user.floor = floor;
     user.society_id = society_id;
     user.address = address;
