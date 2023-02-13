@@ -14,6 +14,10 @@ const inviteSchema = Schema({
     type: Date,
     required: true,
   },
+  inivitation_time: {
+    type: String,
+    required: true,
+  },
   createdAt: {
     type: Date,
     required: true,
