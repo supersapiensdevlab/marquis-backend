@@ -4,11 +4,12 @@ const makeId = require("../utils/makeId");
 exports.addAmenity = async (req, res, next) => {
   try {
     console.log(req.body);
-    const { name, image, working_hours } = req.body;
+    const { name, image, working_hours, society_id } = req.body;
     const amenity = new Amenity();
     amenity.amenity_id = makeId(7);
     amenity.name = name;
     amenity.image = image;
+    amenity.society_id = society_id;
     amenity.working_hours = working_hours
       ? working_hours
       : { startTime: null, endTime: null };
@@ -58,10 +59,11 @@ exports.getAllAmenities = async (req, res, next) => {
 
 exports.updateAmenity = async (req, res, next) => {
   try {
-    const { name, image, working_hours, amenity_id } = req.body;
+    const { name, image, working_hours, amenity_id, society_id } = req.body;
     const amenity = await Amenity.findOne({ amenity_id: amenity_id });
     amenity.name = name;
     amenity.image = image;
+    amenity.society_id = society_id;
     amenity.working_hours = working_hours;
     await amenity.save();
     return res.status(200).json({

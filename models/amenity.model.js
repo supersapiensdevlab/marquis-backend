@@ -13,6 +13,10 @@ const amenitySchema = Schema({
   image: {
     type: String,
   },
+  society_id: {
+    required: true,
+    type: String,
+  },
   working_hours: {
     type: Object,
     default: {
