@@ -4,12 +4,13 @@ const makeId = require("../utils/makeId");
 exports.addInvite = async (req, res, next) => {
   try {
     console.log(req.body);
-    const { invitee, invitation_date, invitation_time } = req.body;
+    const { invitee, invitation_date, invitation_time, invitation_code } = req.body;
     const invite = new Invite();
     invite.invite_id = makeId(7);
     invite.invitee = invitee;
     invite.invitation_date = invitation_date;
     invite.invitation_time = invitation_time;
+    invite.invitation_code = invitation_code;
     invite.createdAt = new Date();
     await invite.save();
     return res.status(200).json({
@@ -56,11 +57,12 @@ exports.getAllInvites = async (req, res, next) => {
 
 exports.updateInvite = async (req, res, next) => {
   try {
-    const { invitee, invitation_date, invite_id, invitation_time } = req.body;
+    const { invitee, invitation_date, invite_id, invitation_time, invitation_code } = req.body;
     const invite = await Invite.findOne({ invite_id: invite_id });
     invite.invitee = invitee;
     invite.invitation_date = invitation_date;
     invite.invitation_time = invitation_time;
+    invite.invitation_code = invitation_code;
     await invite.save();
     return res.status(200).json({
       status: "success",
