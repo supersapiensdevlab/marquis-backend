@@ -61,6 +61,9 @@ const userSchema = Schema({
         contact: {
           type: String,
         },
+        vehicle_no: {
+          type: String,
+        },
       },
     ],
   },

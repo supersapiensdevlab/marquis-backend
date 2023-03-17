@@ -9,6 +9,7 @@ const dailyhelp = require("./dailyhelp.routes");
 const document = require("./document.routes");
 const invite = require("./invite.routes");
 const notice = require("./notice.routes");
+const email = require("./email.routes");
 const router = express.Router();
 
 const defaultRoutes = [
@@ -51,6 +52,10 @@ const defaultRoutes = [
   {
     path: "/dailyhelp",
     route: dailyhelp,
+  },
+  {
+    path: "/email",
+    route: email,
   },
 ];
 
