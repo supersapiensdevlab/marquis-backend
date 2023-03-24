@@ -16,7 +16,6 @@ exports.addUser = async (req, res, next) => {
       society_id,
       type,
       household,
-      verified,
       ownership_documents,
     } = req.body;
     const user = new User();
@@ -29,7 +28,7 @@ exports.addUser = async (req, res, next) => {
     user.wing_name = wing_name;
     user.floor = floor;
     user.society_id = society_id;
-    user.ownership_documents = "";
+    user.ownership_documents = ownership_documents;
     user.verified = false;
     user.address = `Flat no.${flat_no}, ${wing_name} wing, `.concat(
       (await fetchSocietyAddress(society_id)) != null
