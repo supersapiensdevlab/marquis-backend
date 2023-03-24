@@ -16,6 +16,8 @@ exports.addUser = async (req, res, next) => {
       society_id,
       type,
       household,
+      verified,
+      ownership_documents,
     } = req.body;
     const user = new User();
     user.user_id = makeId(7);
@@ -27,6 +29,8 @@ exports.addUser = async (req, res, next) => {
     user.wing_name = wing_name;
     user.floor = floor;
     user.society_id = society_id;
+    user.ownership_documents = ownership_documents;
+    user.verified = verified;
     user.address = `Flat no.${flat_no}, ${wing_name} wing, `.concat(
       (await fetchSocietyAddress(society_id)) != null
         ? await fetchSocietyAddress(society_id)
@@ -93,6 +97,8 @@ exports.updateUser = async (req, res, next) => {
       type,
       user_id,
       household,
+      verified,
+      ownership_documents,
     } = req.body;
     const user = await User.findOne({ user_id: user_id });
     user.name = name;
@@ -106,6 +112,8 @@ exports.updateUser = async (req, res, next) => {
     user.address = address;
     user.household = household;
     user.type = type;
+    user.ownership_documents = ownership_documents;
+    user.verified = verified;
     await user.save();
     return res.status(200).json({
       status: "success",

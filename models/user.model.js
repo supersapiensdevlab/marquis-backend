@@ -67,6 +67,12 @@ const userSchema = Schema({
       },
     ],
   },
+  verified: {
+    type: Boolean,
+  },
+  ownership_documents: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     required: true,
