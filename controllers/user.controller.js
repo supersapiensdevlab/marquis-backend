@@ -29,8 +29,8 @@ exports.addUser = async (req, res, next) => {
     user.wing_name = wing_name;
     user.floor = floor;
     user.society_id = society_id;
-    user.ownership_documents = ownership_documents;
-    user.verified = verified;
+    user.ownership_documents = "";
+    user.verified = false;
     user.address = `Flat no.${flat_no}, ${wing_name} wing, `.concat(
       (await fetchSocietyAddress(society_id)) != null
         ? await fetchSocietyAddress(society_id)
